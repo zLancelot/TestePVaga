@@ -1,1 +1,1 @@
-web: python TesteVaga.py
+web: python manage.py runserver
