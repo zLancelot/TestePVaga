@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+
+    <title>Venda</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Realizar Venda</h1> <br>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <label for="id_vendedor"> Vendedor: </label>
+            <select name = "id_vendedor" id="id_vendedor">
+                {% for vendedor in vendedores %}
+                    <option value="{{ vendedor.id }}">{{ vendedor.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+
+            <label for="id_cliente"> Cliente: </label>
+            <select name= "id_cliente" id="id_cliente">
+                {% for cliente in clientes %}
+                    <option value="{{ cliente.id }}">{{ cliente.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+            <label for="id_produto"> Produto: </label>
+            <select name= "id_produto" id="id_produto">
+                {% for produto in produtos %}
+                    <option value="{{ produto.id }}">{{ produto.descricao }}</option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+            <button type="submit" class="btn btn-primary">Comprar</button>
+
+        </form>
+    </div>
+</body>
+</html>
