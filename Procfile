@@ -1,1 +1,1 @@
-web: guricorn TesteVaga.wsgi
+web: gunicorn TesteVaga.wsgi
